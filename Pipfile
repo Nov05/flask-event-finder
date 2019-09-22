@@ -6,6 +6,13 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+pandas = "*"
+numpy = "*"
+sklearn = "*"
+gensim = "*"
+nltk = "*"
+pymysql = "*"
+flask = "*"
 
 [requires]
 python_version = "3.7"
