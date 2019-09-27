@@ -16,9 +16,9 @@ from sklearn.neighbors import NearestNeighbors
 
 from get_summaries import get_summaries
 
-def tokenizer(doc):
-    return [token for token in simple_preprocess(doc) if token not in STOPWORDS]
-
+############################################################  
+# function tokenizer
+############################################################
 def tokenizer(doc):
      return [token for token in simple_preprocess(doc) 
              if token not in STOPWORDS]
@@ -46,7 +46,7 @@ def get_opportunities(keywords_in):
         analyzer='word',
         max_df=0.9,
         min_df=10,)
-
+   
     # document term matrix
     dtm = vect.fit_transform(summaries[1])
 
@@ -61,6 +61,6 @@ def get_opportunities(keywords_in):
     nearest = nn.kneighbors(dtm_doc.todense())
 
     for index in nearest[1][0]:
-        opportunities.append(df.iloc[index, 0].tolist())   
-                
+        opportunities.append(summaries.iloc[index, 0].tolist())  
+        
     return keywords, opportunities
